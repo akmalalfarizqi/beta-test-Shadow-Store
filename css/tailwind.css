@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1a1a2e; /* Deep gaming foundation */
+  --color-secondary: #16213e; /* Subtle interface depth */
+  --color-accent: #0f4c75; /* Interactive elements */
+  
+  /* Background Colors */
+  --color-background: #eee2dc; /* Clean content canvas */
+  --color-surface: #f8f6f0; /* Card backgrounds */
+  
+  /* Text Colors */
+  --color-text-primary: #2d3436; /* Extended reading comfort */
+  --color-text-secondary: #636e72; /* Supporting information */
+  
+  /* Status Colors */
+  --color-success: #00b894; /* Transaction confirmation - green-500 */
+  --color-warning: #fdcb6e; /* Attention without alarm - yellow-300 */
+  --color-error: #e17055; /* Clear problems - red-400 */
+  
+  /* Shadow Variables */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 ease-out hover:bg-opacity-90 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface text-primary border border-secondary border-opacity-20 font-semibold py-3 px-6 rounded-lg transition-all duration-200 ease-out hover:bg-secondary hover:bg-opacity-10;
+  }
+.card  {
+    @apply bg-surface rounded-lg border border-secondary border-opacity-10;
+  }
+.card-elevated  {
+    @apply bg-surface rounded-lg border border-secondary border-opacity-10;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-surface border border-secondary border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 ease-out;
+  }
+  
+  .text-gaming-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .transition-gaming {
+    transition: all 300ms ease-out;
+  }
+  
+  .transition-quick {
+    transition: all 200ms ease-out;
+  }
+  
+  .transition-modal {
+    transition: all 400ms ease-out;
+  }
+  
+  .shadow-gaming {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-gaming-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+}
