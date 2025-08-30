@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Game - Shadow Store</title>
+    <meta name="description" content="Jelajahi koleksi lengkap game untuk top-up di Shadow Store. Mobile Legends, PUBG Mobile, Free Fire, dan ratusan game lainnya dengan harga terbaik." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fshadowsto6842back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-primary/95 backdrop-blur-md border-b border-secondary/20">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white font-bold" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="text-white">
+                        <div class="font-bold text-xl">Shadow Store</div>
+                        <div class="text-xs text-white/70">Gaming Companion</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-white/80 hover:text-white transition-colors">Beranda</a>
+                    <a href="game_catalog.html" class="text-white font-medium hover:text-gaming-blue transition-colors">Katalog Game</a>
+                    <a href="about_shadow_store.html" class="text-white/80 hover:text-white transition-colors">Tentang Kami</a>
+                    <a href="user_dashboard.html" class="btn-primary text-sm">Dashboard</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white p-2" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden mt-4 pb-4 border-t border-secondary/20 hidden" id="mobileMenu">
+                <div class="flex flex-col space-y-3 pt-4">
+                    <a href="homepage.html" class="text-white/80">Beranda</a>
+                    <a href="game_catalog.html" class="text-white font-medium">Katalog Game</a>
+                    <a href="about_shadow_store.html" class="text-white/80">Tentang Kami</a>
+                    <a href="user_dashboard.html" class="text-accent font-medium">Dashboard</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary via-secondary to-gaming-dark py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Katalog Game
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gaming-blue to-gaming-purple">
+                        Lengkap
+                    </span>
+                </h1>
+                <p class="text-xl text-white/80 mb-8">
+                    Temukan game favorit Anda dan top-up dengan harga terbaik di Indonesia
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="relative">
+                        <input type="text" placeholder="Cari game favorit Anda..." class="w-full px-6 py-4 pl-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-gaming-blue focus:border-transparent transition-all duration-300" id="gameSearch" />
+                        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Search Suggestions -->
+                    <div class="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-gaming-elevated border border-secondary/10 hidden" id="searchSuggestions">
+                        <div class="p-2">
+                            <div class="flex items-center space-x-3 p-3 hover:bg-background rounded-lg cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=100&auto=format&fit=crop" alt="Mobile Legends" class="w-8 h-8 rounded" />
+                                <span class="text-text-primary font-medium">Mobile Legends</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 hover:bg-background rounded-lg cursor-pointer">
+                                <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1" alt="PUBG Mobile" class="w-8 h-8 rounded" />
+                                <span class="text-text-primary font-medium">PUBG Mobile</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 hover:bg-background rounded-lg cursor-pointer">
+                                <img src="https://images.pixabay.com/photo/2020/05/25/17/21/link-5219567_1280.jpg" alt="Free Fire" class="w-8 h-8 rounded" />
+                                <span class="text-text-primary font-medium">Free Fire</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12 bg-background">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Sidebar Filters -->
+                <div class="lg:w-80 flex-shrink-0">
+                    <div class="sticky top-24">
+                        <!-- Mobile Filter Toggle -->
+                        <button class="lg:hidden w-full btn-secondary mb-4 flex items-center justify-center space-x-2" id="filterToggle">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                            </svg>
+                            <span>Filter & Kategori</span>
+                        </button>
+
+                        <!-- Filter Panel -->
+                        <div class="card p-6 hidden lg:block" id="filterPanel">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-lg font-semibold text-primary">Filter Game</h3>
+                                <button class="text-accent text-sm font-medium hover:text-accent/80 transition-colors" id="resetFilters">
+                                    Reset
+                                </button>
+                            </div>
+
+                            <!-- Platform Categories -->
+                            <div class="mb-6">
+                                <h4 class="font-medium text-primary mb-3">Platform</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" checked />
+                                        <span class="text-text-secondary">Mobile Games</span>
+                                        <span class="text-xs text-text-secondary bg-background px-2 py-1 rounded-full ml-auto">156</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">PC Games</span>
+                                        <span class="text-xs text-text-secondary bg-background px-2 py-1 rounded-full ml-auto">89</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Console Games</span>
+                                        <span class="text-xs text-text-secondary bg-background px-2 py-1 rounded-full ml-auto">34</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Game Categories -->
+                            <div class="mb-6">
+                                <h4 class="font-medium text-primary mb-3">Kategori</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">MOBA</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Battle Royale</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">RPG</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Strategy</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Racing</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Price Range -->
+                            <div class="mb-6">
+                                <h4 class="font-medium text-primary mb-3">Rentang Harga</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="priceRange" class="w-4 h-4 text-accent bg-surface border-secondary/20 focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Rp 5.000 - Rp 25.000</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="priceRange" class="w-4 h-4 text-accent bg-surface border-secondary/20 focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Rp 25.000 - Rp 100.000</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="priceRange" class="w-4 h-4 text-accent bg-surface border-secondary/20 focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Rp 100.000+</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Special Offers -->
+                            <div class="mb-6">
+                                <h4 class="font-medium text-primary mb-3">Penawaran Khusus</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Sedang Promo</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Diskon Member</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" class="w-4 h-4 text-accent bg-surface border-secondary/20 rounded focus:ring-accent focus:ring-2" />
+                                        <span class="text-text-secondary">Game Baru</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="flex-1">
+                    <!-- Category Tabs -->
+                    <div class="mb-8">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <button class="px-6 py-3 bg-accent text-white rounded-lg font-medium transition-all duration-200 hover:bg-accent/90 active:scale-95">
+                                Semua Game
+                            </button>
+                            <button class="px-6 py-3 bg-surface text-text-primary rounded-lg font-medium transition-all duration-200 hover:bg-secondary/10 border border-secondary/10">
+                                Trending Indonesia
+                            </button>
+                            <button class="px-6 py-3 bg-surface text-text-primary rounded-lg font-medium transition-all duration-200 hover:bg-secondary/10 border border-secondary/10">
+                                Best Value
+                            </button>
+                            <button class="px-6 py-3 bg-surface text-text-primary rounded-lg font-medium transition-all duration-200 hover:bg-secondary/10 border border-secondary/10">
+                                Game Baru
+                            </button>
+                        </div>
+
+                        <!-- Sort Options -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="text-text-secondary">
+                                Menampilkan <span class="font-medium text-primary">1-24</span> dari <span class="font-medium text-primary">156</span> game
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-text-secondary text-sm">Urutkan:</span>
+                                <select class="px-4 py-2 bg-surface border border-secondary/20 rounded-lg text-text-primary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
+                                    <option>Popularitas</option>
+                                    <option>Harga Terendah</option>
+                                    <option>Harga Tertinggi</option>
+                                    <option>Nama A-Z</option>
+                                    <option>Terbaru</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Games Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                        <!-- Mobile Legends -->
+                        <div class="card p-6 hover:shadow-gaming-elevated transition-all duration-300 group cursor-pointer">
+                            <div class="relative mb-4">
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Mobile Legends" class="w-full h-48 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="absolute top-3 left-3 bg-error text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    Promo 15%
+                                </div>
+                                <div class="absolute top-3 right-3 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    ✓ Stok
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-medium">
+                                        Proses: ~2 menit
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <h3 class="text-lg font-bold text-primary">Mobile Legends</h3>
+                                <div class="flex items-center space-x-1">
+                                    <div class="flex text-warning text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                    <span class="text-text-secondary text-sm">(4.8)</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-3">MOBA • Mobile Game</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">86 Diamond</span>
+                                    <span class="font-semibold text-primary">Rp 15.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">172 Diamond</span>
+                                    <span class="font-semibold text-primary">Rp 28.000</span>
+                                </div>
+                                <div class="text-xs text-accent">+5 denominasi lainnya</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-success font-medium">✓ Proses Instan</div>
+                                <a href="individual_game_page.html" class="btn-primary text-sm px-4 py-2">
+                                    Top Up
+                                </a>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-secondary/10">
+                                <div class="text-xs text-text-secondary">
+                                    "Top up cepat banget!" - <span class="font-medium">Ahmad_Gaming</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PUBG Mobile -->
+                        <div class="card p-6 hover:shadow-gaming-elevated transition-all duration-300 group cursor-pointer">
+                            <div class="relative mb-4">
+                                <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="PUBG Mobile" class="w-full h-48 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="absolute top-3 left-3 bg-warning text-primary px-2 py-1 rounded-full text-xs font-medium">
+                                    Populer
+                                </div>
+                                <div class="absolute top-3 right-3 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    ✓ Stok
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-medium">
+                                        Proses: ~1 menit
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <h3 class="text-lg font-bold text-primary">PUBG Mobile</h3>
+                                <div class="flex items-center space-x-1">
+                                    <div class="flex text-warning text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                    <span class="text-text-secondary text-sm">(4.9)</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-3">Battle Royale • Mobile Game</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">60 UC</span>
+                                    <span class="font-semibold text-primary">Rp 12.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">325 UC</span>
+                                    <span class="font-semibold text-primary">Rp 60.000</span>
+                                </div>
+                                <div class="text-xs text-accent">+7 denominasi lainnya</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-success font-medium">✓ Proses Instan</div>
+                                <a href="individual_game_page.html" class="btn-primary text-sm px-4 py-2">
+                                    Top Up
+                                </a>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-secondary/10">
+                                <div class="text-xs text-text-secondary">
+                                    "Selalu lancar!" - <span class="font-medium">Sari_ProPlayer</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Free Fire -->
+                        <div class="card p-6 hover:shadow-gaming-elevated transition-all duration-300 group cursor-pointer">
+                            <div class="relative mb-4">
+                                <img src="https://images.pixabay.com/photo/2020/05/25/17/21/link-5219567_1280.jpg" alt="Free Fire" class="w-full h-48 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="absolute top-3 left-3 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    Terlaris
+                                </div>
+                                <div class="absolute top-3 right-3 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    ✓ Stok
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-medium">
+                                        Proses: ~30 detik
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <h3 class="text-lg font-bold text-primary">Free Fire</h3>
+                                <div class="flex items-center space-x-1">
+                                    <div class="flex text-warning text-sm">
+                                        <span>★★★★☆</span>
+                                    </div>
+                                    <span class="text-text-secondary text-sm">(4.7)</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-3">Battle Royale • Mobile Game</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">70 Diamond</span>
+                                    <span class="font-semibold text-primary">Rp 10.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">355 Diamond</span>
+                                    <span class="font-semibold text-primary">Rp 50.000</span>
+                                </div>
+                                <div class="text-xs text-accent">+6 denominasi lainnya</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-success font-medium">✓ Proses Instan</div>
+                                <a href="individual_game_page.html" class="btn-primary text-sm px-4 py-2">
+                                    Top Up
+                                </a>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-secondary/10">
+                                <div class="text-xs text-text-secondary">
+                                    "Harga terbaik!" - <span class="font-medium">Rizky_Esports</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Genshin Impact -->
+                        <div class="card p-6 hover:shadow-gaming-elevated transition-all duration-300 group cursor-pointer">
+                            <div class="relative mb-4">
+                                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Genshin Impact" class="w-full h-48 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="absolute top-3 left-3 bg-gaming-purple text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    RPG
+                                </div>
+                                <div class="absolute top-3 right-3 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    ✓ Stok
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-medium">
+                                        Proses: ~5 menit
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <h3 class="text-lg font-bold text-primary">Genshin Impact</h3>
+                                <div class="flex items-center space-x-1">
+                                    <div class="flex text-warning text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                    <span class="text-text-secondary text-sm">(4.9)</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-3">RPG • Multi-Platform</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">60 Genesis Crystal</span>
+                                    <span class="font-semibold text-primary">Rp 16.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">300 Genesis Crystal</span>
+                                    <span class="font-semibold text-primary">Rp 79.000</span>
+                                </div>
+                                <div class="text-xs text-accent">+4 denominasi lainnya</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-success font-medium">✓ Proses Instan</div>
+                                <a href="individual_game_page.html" class="btn-primary text-sm px-4 py-2">
+                                    Top Up
+                                </a>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-secondary/10">
+                                <div class="text-xs text-text-secondary">
+                                    "Trusted seller!" - <span class="font-medium">Mira_Gamer</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Valorant -->
+                        <div class="card p-6 hover:shadow-gaming-elevated transition-all duration-300 group cursor-pointer">
+                            <div class="relative mb-4">
+                                <img src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Valorant" class="w-full h-48 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="absolute top-3 left-3 bg-gaming-blue text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    FPS
+                                </div>
+                                <div class="absolute top-3 right-3 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    ✓ Stok
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-medium">
+                                        Proses: ~3 menit
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <h3 class="text-lg font-bold text-primary">Valorant</h3>
+                                <div class="flex items-center space-x-1">
+                                    <div class="flex text-warning text-sm">
+                                        <span>★★★★☆</span>
+                                    </div>
+                                    <span class="text-text-secondary text-sm">(4.6)</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-3">FPS • PC Game</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">420 VP</span>
+                                    <span class="font-semibold text-primary">Rp 35.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">1000 VP</span>
+                                    <span class="font-semibold text-primary">Rp 85.000</span>
+                                </div>
+                                <div class="text-xs text-accent">+3 denominasi lainnya</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-success font-medium">✓ Proses Instan</div>
+                                <a href="individual_game_page.html" class="btn-primary text-sm px-4 py-2">
+                                    Top Up
+                                </a>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-secondary/10">
+                                <div class="text-xs text-text-secondary">
+                                    "Fast delivery!" - <span class="font-medium">Pro_Gamer123</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Clash of Clans -->
+                        <div class="card p-6 hover:shadow-gaming-elevated transition-all duration-300 group cursor-pointer">
+                            <div class="relative mb-4">
+                                <img src="https://images.pixabay.com/photo/2016/11/29/06/18/home-1867187_1280.jpg" alt="Clash of Clans" class="w-full h-48 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                <div class="absolute top-3 left-3 bg-warning text-primary px-2 py-1 rounded-full text-xs font-medium">
+                                    Strategy
+                                </div>
+                                <div class="absolute top-3 right-3 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                                    ✓ Stok
+                                </div>
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                    <div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-medium">
+                                        Proses: ~2 menit
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <h3 class="text-lg font-bold text-primary">Clash of Clans</h3>
+                                <div class="flex items-center space-x-1">
+                                    <div class="flex text-warning text-sm">
+                                        <span>★★★★☆</span>
+                                    </div>
+                                    <span class="text-text-secondary text-sm">(4.5)</span>
+                                </div>
+                            </div>
+                            <p class="text-text-secondary text-sm mb-3">Strategy • Mobile Game</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">80 Gems</span>
+                                    <span class="font-semibold text-primary">Rp 14.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-text-secondary text-sm">500 Gems</span>
+                                    <span class="font-semibold text-primary">Rp 69.000</span>
+                                </div>
+                                <div class="text-xs text-accent">+5 denominasi lainnya</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-success font-medium">✓ Proses Instan</div>
+                                <a href="individual_game_page.html" class="btn-primary text-sm px-4 py-2">
+                                    Top Up
+                                </a>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-secondary/10">
+                                <div class="text-xs text-text-secondary">
+                                    "Reliable service!" - <span class="font-medium">Chief_Builder</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center">
+                        <button class="btn-secondary px-8 py-3 hover:bg-secondary/10 transition-all duration-200">
+                            Muat Lebih Banyak Game
+                        </button>
+                        <p class="text-text-secondary text-sm mt-4">
+                            Menampilkan 6 dari 156 game tersedia
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white font-bold" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-xl">Shadow Store</div>
+                            <div class="text-xs text-white/70">Your Trusted Gaming Companion</div>
+                        </div>
+                    </div>
+                    <p class="text-white/80 mb-4 max-w-md">
+                        Platform top-up gaming terpercaya di Indonesia dengan keamanan tingkat bank dan proses instan untuk semua game favorit Anda.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-white/60 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-white/60 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-white/60 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="homepage.html" class="text-white/80 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="game_catalog.html" class="text-white/80 hover:text-white transition-colors">Katalog Game</a></li>
+                        <li><a href="user_dashboard.html" class="text-white/80 hover:text-white transition-colors">Dashboard</a></li>
+                        <li><a href="about_shadow_store.html" class="text-white/80 hover:text-white transition-colors">Tentang Kami</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Dukungan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-white/80 hover:text-white transition-colors">Pusat Bantuan</a></li>
+                        <li><a href="javascript:void(0)" class="text-white/80 hover:text-white transition-colors">Live Chat</a></li>
+                        <li><a href="javascript:void(0)" class="text-white/80 hover:text-white transition-colors">WhatsApp</a></li>
+                        <li><a href="javascript:void(0)" class="text-white/80 hover:text-white transition-colors">Email Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-8 pt-8 text-center">
+                <p class="text-white/60">
+                    © 2025 Shadow Store. All Rights Reserved. | Terdaftar dan diawasi oleh Kominfo RI
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Filter toggle for mobile
+        document.getElementById('filterToggle').addEventListener('click', function() {
+            const filterPanel = document.getElementById('filterPanel');
+            filterPanel.classList.toggle('hidden');
+            filterPanel.classList.toggle('lg:block');
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('gameSearch');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+
+        searchInput.addEventListener('focus', function() {
+            if (this.value.length > 0) {
+                searchSuggestions.classList.remove('hidden');
+            }
+        });
+
+        searchInput.addEventListener('input', function() {
+            if (this.value.length > 0) {
+                searchSuggestions.classList.remove('hidden');
+            } else {
+                searchSuggestions.classList.add('hidden');
+            }
+        });
+
+        searchInput.addEventListener('blur', function() {
+            setTimeout(() => {
+                searchSuggestions.classList.add('hidden');
+            }, 200);
+        });
+
+        // Reset filters
+        document.getElementById('resetFilters').addEventListener('click', function() {
+            const checkboxes = document.querySelectorAll('#filterPanel input[type="checkbox"]');
+            const radios = document.querySelectorAll('#filterPanel input[type="radio"]');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            radios.forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Reset mobile games checkbox to checked (default)
+            checkboxes[0].checked = true;
+        });
+
+        // Close mobile filter when clicking outside
+        document.addEventListener('click', function(event) {
+            const filterPanel = document.getElementById('filterPanel');
+            const filterToggle = document.getElementById('filterToggle');
+            
+            if (!filterPanel.contains(event.target) && !filterToggle.contains(event.target)) {
+                if (window.innerWidth < 1024) {
+                    filterPanel.classList.add('hidden');
+                    filterPanel.classList.remove('lg:block');
+                }
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
